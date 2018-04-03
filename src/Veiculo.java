@@ -8,6 +8,7 @@ public class Veiculo
         x = random.randomize30();
         y = random.randomize60();
         foraDaFabrica();
+        id = random.randomizeID();
     }
 
     public void dentroDaFabrica()
@@ -80,7 +81,12 @@ public class Veiculo
         return fabrica;
     }
 
-    protected int x, y, velocidade;
+    public int getId()
+    {
+        return id;
+    }
+
+    protected int x, y, velocidade, id;
     protected boolean fabrica;
     protected String cor;
 }

@@ -32,6 +32,14 @@ public class Aleatorio
         return numero;
     }
 
+    public int randomizeID()
+    {
+        int id1 = ThreadLocalRandom.current().nextInt(1,100000);
+        int id2 = ThreadLocalRandom.current().nextInt(1,100000);
+        int id3 = ThreadLocalRandom.current().nextInt(1,100000);
+        return id1+id2+id3;
+    }
+
     public String randomizeTipo()
     {
         int random;

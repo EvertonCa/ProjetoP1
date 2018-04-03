@@ -20,116 +20,141 @@ public class Main
         while (true)
         {
             Colisoes detectorDeColisao = new Colisoes();
+            ArrayList <Integer>  vetorIDs = new ArrayList<>();
 
             int i;
 
             System.out.printf( "\33[0m Caminhoes(cinza) = %d | Carros(azul) = %d | Motos(marrom) = %d                    \n",
                     caminhoes.size() ,carros.size(), motos.size());
 
-            //detecta colisoes entre caminhoes e outros veiculos e os exclui seguindo as regras de colisao.
+            //detecta colisoes entre caminhoes e outros veiculos e armazena os IDS.
             for(i = 0; i < caminhoes.size(); i++)
             {
                 int x = caminhoes.get(i).getX();
                 int y = caminhoes.get(i).getY();
+                int ID = caminhoes.get(i).getId();
 
                 if(detectorDeColisao.getTipo(x, y).equals("empty"))
                 {
-                    detectorDeColisao.ocupado(x, y, "caminhao", i);
+                    detectorDeColisao.ocupado(x, y, "caminhao", ID);
                 }
                 else
                 {
                     if(detectorDeColisao.getTipo(x, y).equals("caminhao"))
                     {
-                        caminhoes.remove(i);
-                        detectorDeColisao.ajusta("caminhao", i);
-                        caminhoes.remove(detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.ajusta("caminhao", detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.restaura(x, y);
-                        i=0;
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
+                        vetorIDs.add(ID);
+                        detectorDeColisao.restaura(x,y);
                     }
                     else if(detectorDeColisao.getTipo(x, y).equals("carro"))
                     {
-                        carros.remove(detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.ocupado(x, y, "caminhao", i);
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
+                        detectorDeColisao.ocupado(x, y, "caminhao", ID);
                     }
 
                     else if(detectorDeColisao.getTipo(x, y).equals("moto"))
                     {
-                        motos.remove(detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.ocupado(x, y, "caminhao", i);
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
+                        detectorDeColisao.ocupado(x, y, "caminhao", ID);
                     }
                 }
             }
 
-            //detecta colisoes entre carros e outros veiculos e os exclui seguindo as regras de colisao.
+            //detecta colisoes entre carros e outros veiculos e armazena os IDS.
             for(i = 0; i < carros.size(); i++)
             {
                 int x = carros.get(i).getX();
                 int y = carros.get(i).getY();
+                int ID = carros.get(i).getId();
 
                 if(detectorDeColisao.getTipo(x, y).equals("empty"))
                 {
-                    detectorDeColisao.ocupado(x, y, "carro", i);
+                    detectorDeColisao.ocupado(x, y, "carro", ID);
                 }
                 else
                 {
                     if(detectorDeColisao.getTipo(x, y).equals("caminhao"))
                     {
-                        carros.remove(i);
-                        detectorDeColisao.ajusta("carro", i);
-                        i=0;
+                        vetorIDs.add(ID);
                     }
                     else if(detectorDeColisao.getTipo(x, y).equals("carro"))
                     {
-                        carros.remove(i);
-                        detectorDeColisao.ajusta("carro", i);
-                        carros.remove(detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.ajusta("carro", detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.restaura(x, y);
-                        i=0;
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
+                        vetorIDs.add(ID);
+                        detectorDeColisao.restaura(x,y);
                     }
 
                     else if(detectorDeColisao.getTipo(x, y).equals("moto"))
                     {
-                        motos.remove(detectorDeColisao.getIndice(x, y));
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
                         detectorDeColisao.ocupado(x, y, "carro", i);
                     }
                 }
             }
 
-            //detecta colisoes entre motos e outros veiculos e os exclui seguindo as regras de colisao.
+            //detecta colisoes entre motos e outros veiculos e armazena os IDS.
             for(i = 0; i < motos.size(); i++)
             {
                 int x = motos.get(i).getX();
                 int y = motos.get(i).getY();
+                int ID = motos.get(i).getId();
 
                 if(detectorDeColisao.getTipo(x, y).equals("empty"))
                 {
-                    detectorDeColisao.ocupado(x, y, "moto", i);
+                    detectorDeColisao.ocupado(x, y, "moto", ID);
                 }
                 else
                 {
                     if(detectorDeColisao.getTipo(x, y).equals("caminhao"))
                     {
-                        motos.remove(i);
-                        detectorDeColisao.ajusta("moto", i);
-                        i=0;
+                        vetorIDs.add(ID);
                     }
                     else if(detectorDeColisao.getTipo(x, y).equals("carro"))
                     {
-                        motos.remove(i);
-                        detectorDeColisao.ajusta("moto", i);
-                        i=0;
+                        vetorIDs.add(ID);
                     }
 
                     else if(detectorDeColisao.getTipo(x, y).equals("moto"))
                     {
+                        vetorIDs.add(detectorDeColisao.getID(x,y));
+                        vetorIDs.add(ID);
+                        detectorDeColisao.restaura(x,y);
+                    }
+                }
+            }
+
+            //apaga todos os objetos com os IDs salvos na lista de colisoes
+            while (!vetorIDs.isEmpty())
+            {
+                int idParaBuscar = vetorIDs.get(0);
+
+                for(i = 0; i < motos.size(); i++)
+                {
+                    if (motos.get(i).getId() == idParaBuscar)
+                    {
                         motos.remove(i);
-                        detectorDeColisao.ajusta("moto", i);
-                        motos.remove(detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.ajusta("moto", detectorDeColisao.getIndice(x, y));
-                        detectorDeColisao.restaura(x, y);
-                        i=0;
+                        vetorIDs.remove(0);
+                        break;
+                    }
+                }
+
+                for(i = 0; i < carros.size(); i++)
+                {
+                    if (carros.get(i).getId() == idParaBuscar)
+                    {
+                        carros.remove(i);
+                        vetorIDs.remove(0);
+                        break;
+                    }
+                }
+
+                for(i = 0; i < caminhoes.size(); i++)
+                {
+                    if (caminhoes.get(i).getId() == idParaBuscar)
+                    {
+                        caminhoes.remove(i);
+                        vetorIDs.remove(0);
+                        break;
                     }
                 }
             }
@@ -211,10 +236,10 @@ public class Main
                 motos.add(new Moto());
             }
 
-            meuMundo.desenhaMundo();
-            meuMundo.pausaMundo();
-            meuMundo.voltaComeco();
-            meuMundo.reiniciaMundo();
+            meuMundo.desenhaMundo(); //desenha o mundo no console
+            meuMundo.pausaMundo(); //pausa o console pelo tempo determinado
+            meuMundo.voltaComeco(); //volta o cursor para o começo do console
+            meuMundo.reiniciaMundo(); //reinicia a matriz do mundo.
 
         }
 

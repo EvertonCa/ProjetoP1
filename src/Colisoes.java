@@ -3,14 +3,14 @@ public class Colisoes
     public Colisoes()
     {
         tipos = new String[30][60];
-        indices = new int[30][60];
+        id = new int[30][60];
 
         for (int i = 0; i < 30; i++)
         {
             for (int j = 0; j < 60; j++)
             {
                 tipos[i][j] = "empty";
-                indices[i][j] = -1;
+                id[i][j] = 0;
             }
         }
     }
@@ -20,35 +20,23 @@ public class Colisoes
         return tipos[i][j];
     }
 
-    public int getIndice(int i, int j)
+    public int getID(int i, int j)
     {
-        return indices[i][j];
+        return id[i][j];
     }
 
-    public void ocupado(int i, int j, String tipo, int indice)
+    public void ocupado(int i, int j, String tipo, int ID)
     {
         tipos[i][j] = tipo;
-        indices[i][j] = indice;
+        id[i][j] = ID;
     }
 
     public void restaura(int i, int j)
     {
         tipos[i][j] = "empty";
-        indices[i][j] = -1;
-    }
-
-    public void ajusta( String tipo, int indice)
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            for (int j = 0; j < 60; j++)
-            {
-                if(tipos[i][j].equals(tipo) && indices[i][j] > indice)
-                    indices[i][j]--;
-            }
-        }
+        id[i][j] = 0;
     }
 
     protected String tipos[][];
-    protected int indices[][];
+    protected int id[][];
 }
