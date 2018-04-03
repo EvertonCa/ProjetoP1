@@ -94,6 +94,11 @@ public class Mundo
         }
     }
 
+    public int getLocalizacao(int x, int y)
+    {
+        return mundo[x][y];
+    }
+
     public void pausaMundo()
     {
         try
