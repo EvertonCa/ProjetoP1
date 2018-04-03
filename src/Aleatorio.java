@@ -2,14 +2,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Aleatorio
 {
-    public Aleatorio()
-    {
-        randomizeDefault();
-    }
-
-    public void randomizeDefault()
+    public int randomizeDirecao()
     {
         numero = ThreadLocalRandom.current().nextInt(1,5);
+        return numero;
     }
 
     public int randomize30()

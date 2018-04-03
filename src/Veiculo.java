@@ -23,13 +23,14 @@ public class Veiculo
     public void move()
     {
         Aleatorio random = new Aleatorio();
-        int direcao = random.getNumero();
+        int direcao = random.randomizeDirecao();
 
         switch (direcao)
         {
             case 1: //move para a direita
             {
                 x = (x + velocidade) % 30;
+                break;
             }
 
             case 2: //move para a esquerda
@@ -41,11 +42,13 @@ public class Veiculo
                     x = 28;
                 else if(x == -3)
                     x = 27;
+                break;
             }
 
             case 3: //move para baixo
             {
                 y = (y + velocidade) % 60;
+                break;
             }
 
             case 4: //move para cima
@@ -57,9 +60,26 @@ public class Veiculo
                     y = 58;
                 else if(y == -3)
                     y = 57;
+                break;
             }
         }
     }
+
+    public int getX()
+    {
+        return x;
+    }
+
+    public int getY()
+    {
+        return y;
+    }
+
+    public boolean getFabrica()
+    {
+        return fabrica;
+    }
+
     protected int x, y, velocidade;
     protected boolean fabrica;
     protected String cor;

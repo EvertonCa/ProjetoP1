@@ -46,32 +46,32 @@ public class Mundo
         {
             for (int j = 0; j < 60; j++)
             {
-                if(mundo[i][j] == 1)
+                if(mundo[i][j] == 1) //bordas
                 {
                     System.out.printf("\33[7;31m ");
                 }
 
-                else if(mundo[i][j] == 0)
+                else if(mundo[i][j] == 0) //vazio
                 {
                     System.out.printf("\33[7;30m ");
                 }
 
-                else if(mundo[i][j] == 2)
+                else if(mundo[i][j] == 2) //fabrica
                 {
                     System.out.printf("\33[7;32m ");
                 }
 
-                else if(mundo[i][j] == 3)
+                else if(mundo[i][j] == 3) //moto
                 {
                     System.out.printf("\33[7;33m ");
                 }
 
-                else if(mundo[i][j] == 4)
+                else if(mundo[i][j] == 4) //carro
                 {
                     System.out.printf("\33[7;34m ");
                 }
 
-                else if(mundo[i][j] == 5)
+                else if(mundo[i][j] == 5) //caminhao
                 {
                     System.out.printf("\33[7;37m ");
                 }
@@ -98,7 +98,7 @@ public class Mundo
     {
         try
         {
-            Thread.sleep(1000); //funcao para dar uma pequena pausa
+            Thread.sleep(500); //funcao para dar uma pequena pausa
         }
         catch (InterruptedException e) { }
     }
