@@ -4,30 +4,31 @@ public class Main
 {
     public static void main (String argv[])
     {
-        Mundo meuMundo = new Mundo();
+        Mundo meuMundo = new Mundo(); //cria o objeto mundo
 
-        ArrayList <Carro> carros = new ArrayList<>();
-        ArrayList <Caminhao> caminhoes = new ArrayList<>();
-        ArrayList <Moto> motos = new ArrayList<>();
+        ArrayList <Carro> carros = new ArrayList<>(); //novo vetor dinâmico para armazenar os carros
+        ArrayList <Caminhao> caminhoes = new ArrayList<>(); //novo vetor dinâmico para armazenar os caminhões
+        ArrayList <Moto> motos = new ArrayList<>(); //novo vetor dinâmico para armazenar as motos
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) //cria 10 carros, caminhões e motos
         {
             carros.add(new Carro());
             caminhoes.add(new Caminhao());
             motos.add(new Moto());
         }
 
-        while (true)
+        while (true) //loop infinito
         {
-            Colisoes detectorDeColisao = new Colisoes();
-            ArrayList <Integer>  vetorIDs = new ArrayList<>();
+            Colisoes detectorDeColisao = new Colisoes(); //cria um novo objeto detector de colisões
+            ArrayList <Integer>  vetorIDs = new ArrayList<>(); //cria um novo vetor dinâmico para armazenar as IDs a serem apagadas
 
             int i;
 
+            //imprime a quantidade de caminhões, carros e motos no mundo atualmente
             System.out.printf( "\33[0m Caminhoes(cinza) = %d | Carros(azul) = %d | Motos(marrom) = %d                    \n",
                     caminhoes.size() ,carros.size(), motos.size());
 
-            //detecta colisoes entre caminhoes e outros veiculos e armazena os IDS.
+            //detecta colisões entre caminhões e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < caminhoes.size(); i++)
             {
                 int x = caminhoes.get(i).getX();
@@ -60,7 +61,7 @@ public class Main
                 }
             }
 
-            //detecta colisoes entre carros e outros veiculos e armazena os IDS.
+            //detecta colisões entre carros e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < carros.size(); i++)
             {
                 int x = carros.get(i).getX();
@@ -92,7 +93,7 @@ public class Main
                 }
             }
 
-            //detecta colisoes entre motos e outros veiculos e armazena os IDS.
+            //detecta colisões entre motos e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < motos.size(); i++)
             {
                 int x = motos.get(i).getX();
@@ -123,7 +124,7 @@ public class Main
                 }
             }
 
-            //apaga todos os objetos com os IDs salvos na lista de colisoes
+            //apaga todos os objetos com as IDs salvas na lista de colisões
             while (!vetorIDs.isEmpty())
             {
                 int idParaBuscar = vetorIDs.get(0);
@@ -161,7 +162,7 @@ public class Main
 
             int contadorDeNovos;
 
-            // popula o mundo de caminhoes, conta quantos novos devem ser criados e move os existentes
+            // popula o mundo de caminhões, conta quantos novos devem ser criados e move os existentes
             contadorDeNovos = 0;
             for (i = 0; i < caminhoes.size(); i++)
             {
@@ -180,7 +181,7 @@ public class Main
                     caminhoes.get(i).foraDaFabrica();
             }
 
-            // cria os novos caminhoes
+            // cria os novos caminhões
             for (i=0; i < contadorDeNovos; i++)
             {
                 caminhoes.add(new Caminhao());
