@@ -1,27 +1,27 @@
 public class Veiculo
 {
-    public Veiculo(int velocidade, String cor)
+    public Veiculo(int velocidade, String cor) //construtor padrão
     {
-        this.cor = cor;
-        this.velocidade = velocidade;
-        Aleatorio random = new Aleatorio();
-        x = random.randomize30();
-        y = random.randomize60();
-        foraDaFabrica();
-        id = random.randomizeID();
+        this.cor = cor; //define a cor
+        this.velocidade = velocidade; //define a velocidade
+        Aleatorio random = new Aleatorio(); //cria um objeto aleatorio
+        x = random.randomize30(); //randomiza a posição X
+        y = random.randomize60(); //randomiza a posição Y
+        foraDaFabrica(); // define o objeto como fora da fabrica
+        id = random.randomizeID(); //cria um ID aleatório
     }
 
-    public void dentroDaFabrica()
+    public void dentroDaFabrica() //define o objeto como dentro da fabrica
     {
         fabrica = true;
     }
 
-    public void foraDaFabrica()
+    public void foraDaFabrica() //define o objeto como fora da fabrica
     {
         fabrica = false;
     }
 
-    public void move()
+    public void move() //move o objeto para uma direção aleatória (direita, esquerda, cima ou baixo), respeitando sua velocidade
     {
         Aleatorio random = new Aleatorio();
         int direcao = random.randomizeDirecao();
@@ -66,22 +66,22 @@ public class Veiculo
         }
     }
 
-    public int getX()
+    public int getX() //volta a posição X
     {
         return x;
     }
 
-    public int getY()
+    public int getY() //volta a posição Y
     {
         return y;
     }
 
-    public boolean getFabrica()
+    public boolean getFabrica() //volta o boleano fabrica (true para dentro e false para fora)
     {
         return fabrica;
     }
 
-    public int getId()
+    public int getId() //volta a ID do objeto
     {
         return id;
     }
