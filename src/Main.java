@@ -10,8 +10,9 @@ public class Main
         ArrayList <Caminhao> caminhoes = new ArrayList<>(); //novo vetor dinâmico para armazenar os caminhões
         ArrayList <Moto> motos = new ArrayList<>(); //novo vetor dinâmico para armazenar as motos
 
-        //vetor que salva a quantidade de objetos apagados. Slot 0 = caminhoes, slot 1 = carros, slot 2 = motos
+        //vetor que salva a quantidade de objetos apagados. Indice 0 = caminhoes, indice 1 = carros, indice 2 = motos
         int apagados[] = {0, 0, 0};
+        //vetor que salva a quantidade de objetos criados. Indice 0 = caminhoes, indice 1 = carros, indice 2 = motos
         int criados[] = {10, 10, 10};
 
         for (int i = 0; i < 10; i++) //cria 10 carros, caminhões e motos
@@ -131,7 +132,7 @@ public class Main
                 }
             }
 
-            //apaga todos os objetos com as IDs salvas na lista de colisões
+            //apaga todos os objetos com as IDs salvas na lista de colisões e incrementa no vetor de apagados total.
             while (!vetorIDs.isEmpty())
             {
                 int idParaBuscar = vetorIDs.get(0);
@@ -191,7 +192,7 @@ public class Main
                     caminhoes.get(i).foraDaFabrica();
             }
 
-            // cria os novos caminhões
+            // cria os novos caminhões e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 caminhoes.add(new Caminhao());
@@ -217,7 +218,7 @@ public class Main
                     carros.get(i).foraDaFabrica();
             }
 
-            // cria os novos carros
+            // cria os novos carros e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 carros.add(new Carro());
@@ -243,7 +244,7 @@ public class Main
                     motos.get(i).foraDaFabrica();
             }
 
-            // cria as novas motos
+            // cria as novas motos e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 motos.add(new Moto());
@@ -252,6 +253,7 @@ public class Main
 
             meuMundo.desenhaMundo(); //desenha o mundo no console
 
+            //exibe quantos veiculos foram apagados e criados durante a execução do programa
             System.out.printf("|----------------------------------------------------------|\n");
             System.out.printf("|                    Veiculos APAGADOS                     |\n");
             System.out.printf("|      Caminhoes = %d | Carros = %d | Motos = %d                \n",
