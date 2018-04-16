@@ -88,7 +88,7 @@ public class Mundo
 
     public void voltaComeco() //volta o cursor no console para o começo
     {
-        for (int i = 0; i < 31; i++)
+        for (int i = 0; i < 40; i++)
         {
             System.out.printf("\33[A");
         }

@@ -10,6 +10,10 @@ public class Main
         ArrayList <Caminhao> caminhoes = new ArrayList<>(); //novo vetor dinâmico para armazenar os caminhões
         ArrayList <Moto> motos = new ArrayList<>(); //novo vetor dinâmico para armazenar as motos
 
+        //vetor que salva a quantidade de objetos apagados. Slot 0 = caminhoes, slot 1 = carros, slot 2 = motos
+        int apagados[] = {0, 0, 0};
+        int criados[] = {10, 10, 10};
+
         for (int i = 0; i < 10; i++) //cria 10 carros, caminhões e motos
         {
             carros.add(new Carro());
@@ -25,8 +29,11 @@ public class Main
             int i;
 
             //imprime a quantidade de caminhões, carros e motos no mundo atualmente
-            System.out.printf( "\33[0m Caminhoes \33[7;37m  \33[0m  = %d | Carros \33[7;34m  \33[0m  = %d | Motos \33[7;33m  \33[0m  = %d                    \n",
-                    caminhoes.size() ,carros.size(), motos.size());
+            System.out.printf("|----------------------------------------------------------|\n");
+            System.out.printf("|                VEICULOS ATUALMENTE NO MAPA               |\n");
+            System.out.printf("| Caminhoes \33[7;37m  \33[0m  = %d | Carros \33[7;34m  \33[0m  = %d | " +
+                            "Motos \33[7;33m  \33[0m  = %d                    \n",caminhoes.size() ,carros.size(), motos.size());
+            System.out.printf("|----------------------------------------------------------|\n");
 
             //detecta colisões entre caminhões e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < caminhoes.size(); i++)
@@ -135,6 +142,7 @@ public class Main
                     {
                         motos.remove(i);
                         vetorIDs.remove(0);
+                        apagados[2]++;
                         break;
                     }
                 }
@@ -145,6 +153,7 @@ public class Main
                     {
                         carros.remove(i);
                         vetorIDs.remove(0);
+                        apagados[1]++;
                         break;
                     }
                 }
@@ -155,6 +164,7 @@ public class Main
                     {
                         caminhoes.remove(i);
                         vetorIDs.remove(0);
+                        apagados[0]++;
                         break;
                     }
                 }
@@ -185,6 +195,7 @@ public class Main
             for (i=0; i < contadorDeNovos; i++)
             {
                 caminhoes.add(new Caminhao());
+                criados[0]++;
             }
 
             // popula o mundo de carros, conta quantos novos devem ser criados e move os existentes
@@ -210,6 +221,7 @@ public class Main
             for (i=0; i < contadorDeNovos; i++)
             {
                 carros.add(new Carro());
+                criados[1]++;
             }
 
             // popula o mundo de motos, conta quantos novos devem ser criados e move os existentes
@@ -235,9 +247,20 @@ public class Main
             for (i=0; i < contadorDeNovos; i++)
             {
                 motos.add(new Moto());
+                criados[2]++;
             }
 
             meuMundo.desenhaMundo(); //desenha o mundo no console
+
+            System.out.printf("|----------------------------------------------------------|\n");
+            System.out.printf("|                    Veiculos APAGADOS                     |\n");
+            System.out.printf("|      Caminhoes = %d | Carros = %d | Motos = %d                \n",
+                    apagados[0] ,apagados[1], apagados[2]);
+            System.out.printf("|                    Veiculos CRIADOS                      |\n");
+            System.out.printf("|      Caminhoes = %d | Carros = %d | Motos = %d                \n",
+                    criados[0] ,criados[1], criados[2]);
+            System.out.printf("|----------------------------------------------------------|\n");
+
             meuMundo.pausaMundo(); //pausa o console pelo tempo determinado
             meuMundo.voltaComeco(); //volta o cursor para o começo do console
             meuMundo.reiniciaMundo(); //reinicia a matriz do mundo.
