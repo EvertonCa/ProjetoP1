@@ -48,32 +48,32 @@ public class Mundo
             {
                 if(mundo[i][j] == 1) //bordas vermelhas
                 {
-                    System.out.printf("\33[7;31m ");
+                    System.out.printf("\33[7;31m \33[0m");
                 }
 
                 else if(mundo[i][j] == 0) //fundo preto
                 {
-                    System.out.printf("\33[7;30m ");
+                    System.out.printf("\33[7;30m \33[0m");
                 }
 
                 else if(mundo[i][j] == 2) //fabrica verde
                 {
-                    System.out.printf("\33[7;32m ");
+                    System.out.printf("\33[7;32m \33[0m");
                 }
 
                 else if(mundo[i][j] == 3) //moto marrom
                 {
-                    System.out.printf("\33[7;33m ");
+                    System.out.printf("\33[7;33m \33[0m");
                 }
 
                 else if(mundo[i][j] == 4) //carro azul
                 {
-                    System.out.printf("\33[7;34m ");
+                    System.out.printf("\33[7;34m \33[0m");
                 }
 
                 else if(mundo[i][j] == 5) //caminhao cinza
                 {
-                    System.out.printf("\33[7;37m ");
+                    System.out.printf("\33[7;37m \33[0m");
                 }
             }
 

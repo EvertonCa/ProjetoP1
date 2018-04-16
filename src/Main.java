@@ -25,7 +25,7 @@ public class Main
             int i;
 
             //imprime a quantidade de caminhões, carros e motos no mundo atualmente
-            System.out.printf( "\33[0m Caminhoes(cinza) = %d | Carros(azul) = %d | Motos(marrom) = %d                    \n",
+            System.out.printf( "\33[0m Caminhoes \33[7;37m  \33[0m  = %d | Carros \33[7;34m  \33[0m  = %d | Motos \33[7;33m  \33[0m  = %d                    \n",
                     caminhoes.size() ,carros.size(), motos.size());
 
             //detecta colisões entre caminhões e outros veiculos e armazena os IDS dos objetos a serem apagados.
