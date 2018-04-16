@@ -1,11 +1,14 @@
 public class Mundo
 {
-    public Mundo() //construtor padrão
+    ///construtor padrão
+    public Mundo()
     {
-        reiniciaMundo(); //cria a matriz mundo padrão
+        ///cria a matriz mundo padrão
+        reiniciaMundo();
     }
 
-    public void reiniciaMundo() //reinicia a matriz mundo para a matriz padrão
+    ///reinicia a matriz mundo para a matriz padrão
+    public void reiniciaMundo()
     {
         mundo = new int[][]
                 {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
@@ -40,38 +43,45 @@ public class Mundo
                 ,{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}};
     }
 
-    public void desenhaMundo() //imprime no console a matriz com as cores e posições pré definidas
+    ///imprime no console a matriz com as cores e posições pré definidas
+    public void desenhaMundo()
     {
         for (int i = 0; i < 30; i++)
         {
             for (int j = 0; j < 60; j++)
             {
-                if(mundo[i][j] == 1) //bordas vermelhas
+                ///bordas vermelhas
+                if(mundo[i][j] == 1)
                 {
                     System.out.printf("\33[7;31m \33[0m");
                 }
 
-                else if(mundo[i][j] == 0) //fundo preto
+                ///fundo preto
+                else if(mundo[i][j] == 0)
                 {
                     System.out.printf("\33[7;30m \33[0m");
                 }
 
-                else if(mundo[i][j] == 2) //fabrica verde
+                ///fabrica verde
+                else if(mundo[i][j] == 2)
                 {
                     System.out.printf("\33[7;32m \33[0m");
                 }
 
-                else if(mundo[i][j] == 3) //moto marrom
+                ///moto marrom
+                else if(mundo[i][j] == 3)
                 {
                     System.out.printf("\33[7;33m \33[0m");
                 }
 
-                else if(mundo[i][j] == 4) //carro azul
+                ///carro azul
+                else if(mundo[i][j] == 4)
                 {
                     System.out.printf("\33[7;34m \33[0m");
                 }
 
-                else if(mundo[i][j] == 5) //caminhao cinza
+                ///caminhao cinza
+                else if(mundo[i][j] == 5)
                 {
                     System.out.printf("\33[7;37m \33[0m");
                 }
@@ -81,12 +91,14 @@ public class Mundo
         }
     }
 
-    public void insereNoMundo(int x, int y, int tipo) //insere um veiculo na matriz do mundo na posição indicada
+    ///insere um veiculo na matriz do mundo na posição indicada
+    public void insereNoMundo(int x, int y, int tipo)
     {
         mundo[x][y] = tipo;
     }
 
-    public void voltaComeco() //volta o cursor no console para o começo
+    ///volta o cursor no console para o começo
+    public void voltaComeco()
     {
         for (int i = 0; i < 40; i++)
         {
@@ -94,12 +106,14 @@ public class Mundo
         }
     }
 
-    public int getLocalizacao(int x, int y) //retorna que tipo esta salvo nas coordenadas indicadas
+    ///retorna que tipo esta salvo nas coordenadas indicadas
+    public int getLocalizacao(int x, int y)
     {
         return mundo[x][y];
     }
 
-    public void pausaMundo()  //pausa a execução do programa por 0,5s
+    ///pausa a execução do programa por 0,5s
+    public void pausaMundo()
     {
         try
         {

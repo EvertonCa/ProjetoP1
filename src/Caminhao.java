@@ -1,8 +1,10 @@
 public class Caminhao extends Veiculo
 {
-    public Caminhao() //construtor padrão com capacidade de carga aleatória
+    ///construtor padrão com capacidade de carga aleatória
+    public Caminhao()
     {
-        super(1, "cinza"); //chama construtor padrão da classe pai
+        ///chama construtor padrão da classe pai
+        super(1, "cinza");
         Aleatorio random = new Aleatorio();
         capacidadeCarga = random.randomizeCarga();
     }

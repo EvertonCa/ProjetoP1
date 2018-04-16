@@ -1,8 +1,10 @@
 public class Moto extends Veiculo
 {
-    public Moto() //construtor padrão com tipo da moto aleatória
+    ///construtor padrão com tipo da moto aleatória
+    public Moto()
     {
-        super(3, "marrom"); //chama construtor padrão da classe pai
+        ///chama construtor padrão da classe pai
+        super(3, "marrom");
         Aleatorio random = new Aleatorio();
         tipo = random.randomizeTipo();
     }

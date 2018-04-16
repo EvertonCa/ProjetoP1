@@ -4,39 +4,47 @@ public class Main
 {
     public static void main (String argv[])
     {
-        Mundo meuMundo = new Mundo(); //cria o objeto mundo
+        ///cria o objeto mundo
+        Mundo meuMundo = new Mundo();
 
-        ArrayList <Carro> carros = new ArrayList<>(); //novo vetor dinâmico para armazenar os carros
-        ArrayList <Caminhao> caminhoes = new ArrayList<>(); //novo vetor dinâmico para armazenar os caminhões
-        ArrayList <Moto> motos = new ArrayList<>(); //novo vetor dinâmico para armazenar as motos
+        ///novo vetor dinâmico para armazenar os carros
+        ArrayList <Carro> carros = new ArrayList<>();
+        ///novo vetor dinâmico para armazenar os caminhões
+        ArrayList <Caminhao> caminhoes = new ArrayList<>();
+        ///novo vetor dinâmico para armazenar as motos
+        ArrayList <Moto> motos = new ArrayList<>();
 
-        //vetor que salva a quantidade de objetos apagados. Indice 0 = caminhoes, indice 1 = carros, indice 2 = motos
+        ///vetor que salva a quantidade de objetos apagados. Indice 0 = caminhões, indice 1 = carros, indice 2 = motos
         int apagados[] = {0, 0, 0};
-        //vetor que salva a quantidade de objetos criados. Indice 0 = caminhoes, indice 1 = carros, indice 2 = motos
+        ///vetor que salva a quantidade de objetos criados. Indice 0 = caminhões, indice 1 = carros, indice 2 = motos
         int criados[] = {10, 10, 10};
 
-        for (int i = 0; i < 10; i++) //cria 10 carros, caminhões e motos
+        ///cria 10 carros, caminhões e motos
+        for (int i = 0; i < 10; i++)
         {
             carros.add(new Carro());
             caminhoes.add(new Caminhao());
             motos.add(new Moto());
         }
 
-        while (true) //loop infinito
+        ///loop infinito de execução do programa
+        while (true)
         {
-            Colisoes detectorDeColisao = new Colisoes(); //cria um novo objeto detector de colisões
-            ArrayList <Integer>  vetorIDs = new ArrayList<>(); //cria um novo vetor dinâmico para armazenar as IDs a serem apagadas
+            ///cria um novo objeto detector de colisões
+            Colisoes detectorDeColisao = new Colisoes();
+            ///cria um novo vetor dinâmico para armazenar as IDs a serem apagadas
+            ArrayList <Integer>  vetorIDs = new ArrayList<>();
 
             int i;
 
-            //imprime a quantidade de caminhões, carros e motos no mundo atualmente
+            ///imprime a quantidade de caminhões, carros e motos no mundo atualmente
             System.out.printf("|----------------------------------------------------------|\n");
             System.out.printf("|                VEICULOS ATUALMENTE NO MAPA               |\n");
             System.out.printf("| Caminhoes \33[7;37m  \33[0m  = %d | Carros \33[7;34m  \33[0m  = %d | " +
                             "Motos \33[7;33m  \33[0m  = %d                    \n",caminhoes.size() ,carros.size(), motos.size());
             System.out.printf("|----------------------------------------------------------|\n");
 
-            //detecta colisões entre caminhões e outros veiculos e armazena os IDS dos objetos a serem apagados.
+            ///detecta colisões entre caminhões e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < caminhoes.size(); i++)
             {
                 int x = caminhoes.get(i).getX();
@@ -69,7 +77,7 @@ public class Main
                 }
             }
 
-            //detecta colisões entre carros e outros veiculos e armazena os IDS dos objetos a serem apagados.
+            ///detecta colisões entre carros e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < carros.size(); i++)
             {
                 int x = carros.get(i).getX();
@@ -101,7 +109,7 @@ public class Main
                 }
             }
 
-            //detecta colisões entre motos e outros veiculos e armazena os IDS dos objetos a serem apagados.
+            ///detecta colisões entre motos e outros veiculos e armazena os IDS dos objetos a serem apagados.
             for(i = 0; i < motos.size(); i++)
             {
                 int x = motos.get(i).getX();
@@ -132,7 +140,7 @@ public class Main
                 }
             }
 
-            //apaga todos os objetos com as IDs salvas na lista de colisões e incrementa no vetor de apagados total.
+            ///apaga todos os objetos com as IDs salvas na lista de colisões e incrementa no vetor de apagados total.
             while (!vetorIDs.isEmpty())
             {
                 int idParaBuscar = vetorIDs.get(0);
@@ -173,7 +181,7 @@ public class Main
 
             int contadorDeNovos;
 
-            // popula o mundo de caminhões, conta quantos novos devem ser criados e move os existentes
+            ///popula o mundo de caminhões, conta quantos novos devem ser criados e move os existentes
             contadorDeNovos = 0;
             for (i = 0; i < caminhoes.size(); i++)
             {
@@ -192,14 +200,14 @@ public class Main
                     caminhoes.get(i).foraDaFabrica();
             }
 
-            // cria os novos caminhões e incrementa o vetor de criados total
+            ///cria os novos caminhões e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 caminhoes.add(new Caminhao());
                 criados[0]++;
             }
 
-            // popula o mundo de carros, conta quantos novos devem ser criados e move os existentes
+            ///popula o mundo de carros, conta quantos novos devem ser criados e move os existentes
             contadorDeNovos = 0;
             for(i = 0; i < carros.size(); i++)
             {
@@ -218,14 +226,14 @@ public class Main
                     carros.get(i).foraDaFabrica();
             }
 
-            // cria os novos carros e incrementa o vetor de criados total
+            ///cria os novos carros e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 carros.add(new Carro());
                 criados[1]++;
             }
 
-            // popula o mundo de motos, conta quantos novos devem ser criados e move os existentes
+            ///popula o mundo de motos, conta quantos novos devem ser criados e move os existentes
             contadorDeNovos = 0;
             for(i = 0; i < motos.size(); i++)
             {
@@ -244,16 +252,17 @@ public class Main
                     motos.get(i).foraDaFabrica();
             }
 
-            // cria as novas motos e incrementa o vetor de criados total
+            ///cria as novas motos e incrementa o vetor de criados total
             for (i=0; i < contadorDeNovos; i++)
             {
                 motos.add(new Moto());
                 criados[2]++;
             }
 
-            meuMundo.desenhaMundo(); //desenha o mundo no console
+            ///desenha o mundo no console
+            meuMundo.desenhaMundo();
 
-            //exibe quantos veiculos foram apagados e criados durante a execução do programa
+            ///exibe quantos veiculos foram apagados e criados durante a execução do programa
             System.out.printf("|----------------------------------------------------------|\n");
             System.out.printf("|                    Veiculos APAGADOS                     |\n");
             System.out.printf("|      Caminhoes = %d | Carros = %d | Motos = %d                \n",
@@ -263,9 +272,12 @@ public class Main
                     criados[0] ,criados[1], criados[2]);
             System.out.printf("|----------------------------------------------------------|\n");
 
-            meuMundo.pausaMundo(); //pausa o console pelo tempo determinado
-            meuMundo.voltaComeco(); //volta o cursor para o começo do console
-            meuMundo.reiniciaMundo(); //reinicia a matriz do mundo.
+            ///pausa o console pelo tempo determinado
+            meuMundo.pausaMundo();
+            ///volta o cursor para o começo do console
+            meuMundo.voltaComeco();
+            ///reinicia a matriz do mundo.
+            meuMundo.reiniciaMundo();
 
         }
 
