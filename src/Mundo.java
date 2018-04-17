@@ -53,37 +53,37 @@ public class Mundo
                 ///bordas vermelhas
                 if(mundo[i][j] == 1)
                 {
-                    System.out.printf("\33[7;31m  \33[0m");
+                    System.out.printf("\33[7;31m \33[0m");
                 }
 
                 ///fundo preto
                 else if(mundo[i][j] == 0)
                 {
-                    System.out.printf("\33[7;30m  \33[0m");
+                    System.out.printf("\33[7;30m \33[0m");
                 }
 
                 ///fabrica verde
                 else if(mundo[i][j] == 2)
                 {
-                    System.out.printf("\33[7;32m  \33[0m");
+                    System.out.printf("\33[7;32m \33[0m");
                 }
 
                 ///moto marrom
                 else if(mundo[i][j] == 3)
                 {
-                    System.out.printf("\33[7;33m  \33[0m");
+                    System.out.printf("\33[7;33m \33[0m");
                 }
 
                 ///carro azul
                 else if(mundo[i][j] == 4)
                 {
-                    System.out.printf("\33[7;34m  \33[0m");
+                    System.out.printf("\33[7;34m \33[0m");
                 }
 
                 ///caminhao cinza
                 else if(mundo[i][j] == 5)
                 {
-                    System.out.printf("\33[7;37m  \33[0m");
+                    System.out.printf("\33[7;37m \33[0m");
                 }
             }
 
