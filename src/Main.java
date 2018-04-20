@@ -27,6 +27,10 @@ public class Main
             motos.add(new Moto());
         }
 
+        Legenda minhaLegenda = new Legenda();
+
+        minhaLegenda.exibeLegenda();
+
         ///loop infinito de execução do programa
         while (true)
         {
