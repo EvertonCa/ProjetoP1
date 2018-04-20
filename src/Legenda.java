@@ -1,5 +1,6 @@
 public class Legenda
 {
+    ///Exibe o mundo sem nenhum veiculo, indicando as fabricas (é exibido por 5 segundos)
     public void exibeLegenda()
     {
         Mundo meuMundo = new Mundo();
@@ -23,11 +24,13 @@ public class Legenda
 
     }
 
+    ///volta o carro do terminal uma linha acima
     public void voltaCarro()
     {
         System.out.printf("\33[A");
     }
 
+    ///pausa a execução do programa por 5 segundos
     public void pausaLegenda()
     {
         try
@@ -37,6 +40,7 @@ public class Legenda
         catch (InterruptedException e) { }
     }
 
+    ///volta o carro para o inicio do mapa
     public void voltaComecoLegenda()
     {
         for (int i = 0; i < 30; i++)
