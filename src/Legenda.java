@@ -1,3 +1,8 @@
+/**
+ *
+ *Classe responsável pela exibição inicial do mundo com legendas nas fábricas
+ */
+
 public class Legenda
 {
     ///Exibe o mundo sem nenhum veiculo, indicando as fabricas (é exibido por 5 segundos)

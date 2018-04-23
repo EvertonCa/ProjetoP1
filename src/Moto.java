@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por criar as motos herdando Veiculos
+ */
+
+
 public class Moto extends Veiculo
 {
     ///construtor padrão com tipo da moto aleatória

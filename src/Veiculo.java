@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por administrar todos os veiculos
+ */
+
+
 public class Veiculo
 {
     ///construtor padrão

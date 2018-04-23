@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por criar e admnistrar a matriz do mundo
+ */
+
+
 public class Mundo
 {
     ///construtor padrão

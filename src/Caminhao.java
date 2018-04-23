@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por criar os caminhões herdando Veiculos
+ */
+
+
 public class Caminhao extends Veiculo
 {
     ///construtor padrão com capacidade de carga aleatória

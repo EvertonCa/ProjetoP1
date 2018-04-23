@@ -1,3 +1,14 @@
+/**
+*Aluno: Everton Cardoso Acchetta
+*RA: 22.117.061-6
+*Disciplina: CC3642 - Orientação a Objetos
+*
+*Programa criado para gerar um mundo de grades de 30 por 60, com 3 "fábricas" (áreas que se os veáculos passam,
+*outro do mesmo tipo é criado aleatóriamente) e 10 caminhões, carros e motos criados ao primeiro instante. Os veículos se
+*movimentam aleatóriamente e caso colidam, algum veículos é apagado (segue uma regra estabelecida).
+*O programa também informa quandos veículos estão no mapa no momento e quantos foram criados e destruídos no total.
+ */
+
 import java.util.ArrayList;
 
 public class Main
