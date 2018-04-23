@@ -1,9 +1,0 @@
-digraph "Aleatorio.randomizeDirecao"
-{
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node10 [label="Aleatorio.randomizeDirecao",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
-  Node10 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
-  Node11 [label="Veiculo.move",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_veiculo.html#a3341b0ed6b4d34db990a31f7a499ae80",tooltip="move o objeto para uma direção aleatória (direita, esquerda, cima ou baixo), respeitando sua velocida..."];
-}
