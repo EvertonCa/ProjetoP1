@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por criar os carros herdando Veiculos
+ */
+
+
 public class Carro extends Veiculo
 {
     ///construtor padrão com número de passageiros aleatório

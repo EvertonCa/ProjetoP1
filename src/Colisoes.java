@@ -1,3 +1,8 @@
+/**
+ *
+ *Classe responsável por administrar as colisões entre veiculos no programa
+ */
+
 public class Colisoes
 {
     ///construtor padrão

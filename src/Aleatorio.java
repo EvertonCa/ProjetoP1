@@ -1,3 +1,9 @@
+/**
+ *
+ *Classe responsável por administrar os valores e decisões aleatórias do programa
+ */
+
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Aleatorio
