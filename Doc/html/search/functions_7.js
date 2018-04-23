@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ocupado',['ocupado',['../class_colisoes.html#aee76e39346a03b3f6eeddbca2efe8067',1,'Colisoes']]]
+  ['pausamundo',['pausaMundo',['../class_mundo.html#a871bfb3ebd38d8ce498777bb0dd1cdeb',1,'Mundo']]]
 ];
